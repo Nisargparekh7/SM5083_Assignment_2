@@ -1,0 +1,118 @@
+\documentclass[journal,12pt,twocolumn]{IEEEtran}
+\usepackage{tikz}
+\usepackage{amsmath}
+\usepackage{breqn}
+\usepackage{amssymb}
+\pagestyle{empty}
+\usepackage{setspace}
+\usepackage{gensymb}
+\singlespacing
+\usepackage{mathtools} 
+\usepackage{amsmath}
+\usepackage{amsthm}
+\begin{document}
+\providecommand{\sbrak}[1]{\ensuremath{{}\left[#1\right]}}
+\providecommand{\lsbrak}[1]{\ensuremath{{}\left[#1\right.}}
+\providecommand{\rsbrak}[1]{\ensuremath{{}\left.#1\right]}}
+\providecommand{\brak}[1]{\ensuremath{\left(#1\right)}}
+\providecommand{\lbrak}[1]{\ensuremath{\left(#1\right.}}
+\providecommand{\rbrak}[1]{\ensuremath{\left.#1\right)}}
+\providecommand{\cbrak}[1]{\ensuremath{\left\{#1\right\}}}
+\providecommand{\lcbrak}[1]{\ensuremath{\left\{#1\right.}}
+\providecommand{\rcbrak}[1]{\ensuremath{\left.#1\right\}}}
+\newcommand{\myvec}[1]{\ensuremath{\begin{pmatrix}#1\end{pmatrix}}}
+\newcommand{\cmyvec}[1]{\ensuremath{\begin{pmatrix*}[c]#1\end{pmatrix*}}}
+\newcommand{\mydet}[1]{\ensuremath{\begin{vmatrix}#1\end{vmatrix}}}
+\newcommand{\proj}[2]{\textbf{proj}_{\vec{#1}}\vec{#2}}
+\let\StandardTheFigure\thefigure
+\let\vec\mathbf
+
+\title{
+Assignment - 1
+}
+\author{ Nisarg Parekh \\SM21MTECH14002}
+\maketitle
+\newpage
+\bigskip
+\bibliographystyle{IEEEtran}
+\section*{\textbf{Problem}}
+\noindent
+\textbf{\textsl{1.Show that the area of triangle formed by lines
+$$x\cos\alpha + y\sin\alpha =p,x\cos\beta + y\sin\beta =q,$$$$x\cos\gamma + y\sin\gamma =r$$
+ $$is~~\frac{\left[ p\sin(\beta-\gamma) +q\sin(\gamma-\alpha)+r sin(\alpha-\beta)\right]^2 }{2\sin(\beta-\gamma) \sin(\gamma-\alpha)\sin(\alpha-\beta)}$$ 
+ }}
+\noindent
+\section*{\textbf{Solution}}
+\noindent
+\begin{align*}
+ Area ~formed~ by~ lines:   x\cos\alpha + y\sin\alpha -p=0, \\~x\cos\beta + y\sin\beta -q=0~x\cos\gamma + y\sin\gamma -r=0 is 
+\end{align*}
+\begin{multline*}
+     a_{1}x + b_{1}y +c_{1}=0 \\
+    a_{2}x + b_{2}y +c_{2}=0 \\
+    a_{3}x + b_{3}y +c_{3}=0 \\
+\end{multline*}
+\begin{multline}
+     =\frac{det \begin{bmatrix}a_{1}&b_{1}&c_{1}\\a_{2}&b_{2}&c_{2}\\a_{3}&b_{3}&c_{3}\end{bmatrix}^{2}}{2~C1~C2~C3}\\\
+where ~C1,C2,C3~ are~ co factor ~of~ c1,c2,c3 ~\\\ respectively~ in~ the ~above~ matrix.
+\end{multline}
+
+\begin{multline}
+     =\frac{det \begin{bmatrix}\cos\alpha&\sin\alpha&-p\\\cos\beta&\sin\beta&-q\\\cos\gamma&\sin\gamma&-r\end{bmatrix}^{2}}{2~C1~C2~C3}\\\
+\end{multline}
+let's  find Determinate first
+\begin{multline}
+     Determinate=-\begin{vmatrix} \cos\alpha&\sin\alpha&p\\\cos\beta&\sin\beta&q\\\cos\gamma&\sin\gamma&r \end{vmatrix}\\\because~taking~ common ~ C3 \xleftrightarrow{{-}} C3
+\end{multline}
+\begin{multline}
+     = -[ ~
+     \cos\alpha(r\sin\beta-q\sin\gamma) -\\ \sin\alpha(r\cos\beta - q\cos\gamma) + p(\cos\beta \sin\gamma-\sin\beta\cos\gamma)
+    ~ ]\\ \because ~expanding~ determinant
+\end{multline}
+
+\begin{multline}
+     = -[ ~
+     (r\cos\alpha\sin\beta-q\sin\gamma\cos\alpha) -\\ (r\sin\alpha\cos\beta - q\cos\gammasin\alpha) + p(\cos\beta \sin\gamma-\sin\beta\cos\gamma)
+    ~ ]
+\end{multline}
+\begin{multline}
+     = -[ ~
+     r(\cos\alpha\sin\beta- \sin\alpha\cos\beta)-\\ q(\sin\gamma\cos\alpha+ \cos\gammasin\alpha) + p(\cos\beta \sin\gamma-\sin\beta\cos\gamma)
+    ~ ]\\ \because ~rearranging ~terms
+\end{multline}
+\begin{multline}
+     = -[ ~
+     -r\sin(\alpha-\beta)- q\sin(\gamma-\alpha) - p \sin(\beta-\gamma)
+    ~ ]\\ 
+\because \sin A\cos B - \sin B\cos A=\sin(A-B)
+\end{multline}
+\begin{multline}
+   Determinate  = [ ~
+     r\sin(\alpha-\beta)+ q\sin(\gamma-\alpha) + \\p \sin(\beta-\gamma)
+    ~ ]
+\end{multline}
+
+Now we will find C1,C2,C3
+\begin{multline}
+    C1=\begin{vmatrix}\cos\beta & \sin\beta\\ \cos\gamma&\sin\gamma \end{vmatrix}=\cos\beta\sin\gamma -\cos\gamma\sin\beta\\ =-\sin(\beta-\gamma)
+\end{multline}
+\begin{multline}
+    C2=\begin{vmatrix}\cos\alpha & \sin\alpha\\ \cos\gamma&\sin\gamma \end{vmatrix}=\cos\alpha\sin\gamma -\cos\gamma\sin\alpha\\ =\sin(\gamma-\alpha)
+\end{multline}
+\begin{multline}    
+C3=\begin{vmatrix}\cos\alpha & \sin\alpha\\ \cos\beta&\sin\beta \end{vmatrix}=\cos\alpha\sin\beta -\cos\beta\sin\alpha\\ =-\sin(\alpha-\beta)
+\end{multline}
+
+Putting equation number 8,9,10,11 in equation 2
+\begin{multline}
+= \frac{ [r\sin(\alpha-\beta)+ q\sin(\gamma-\alpha) + p \sin(\beta-\gamma)]^2}{2~(-\sin(\beta-\gamma))~(\sin(\gamma-\alpha))~(-\sin(\alpha-\beta))}    
+\end{multline}
+\begin{multline}
+    \frac{\left[ p\sin(\beta-\gamma) +q\sin(\gamma-\alpha)+r sin(\alpha-\beta)\right] }{2\sin(\beta-\gamma) \sin(\gamma-\alpha)\sin(\alpha-\beta)}\\=R.H.S
+\end{multline}
+putting~ value~ of~p=-1,~q=-1 ,r=-1$~\alpha=60~\beta=45 \\ \gamma=30$
+
+\begin{multline}
+=\frac{(-0.17638)^2}{-0.06698}=-0.004644198\\
+\end{multline}
+\end{document}
